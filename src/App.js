@@ -1,4 +1,4 @@
-import './App.css';
+import './styles.scss';
 import Header from './components/Header';
 import Index from './pages/Index';
 import New from './pages/New';
