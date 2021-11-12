@@ -45,7 +45,7 @@ const createBookmark = async (bookmark) => {
   //form variable
 
   const form = (
-    <form onSubmit={handleSubmit}>
+    <form class ="form" onSubmit={handleSubmit}>
       <input
         type="text"
         name="title"

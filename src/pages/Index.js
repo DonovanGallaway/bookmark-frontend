@@ -6,20 +6,24 @@ import { Link } from "react-router-dom"
 
 const Index = (props) => {
   
-  //sets the state, bookmarks and sets it to null
-  const [bookmarks, setBookmarks] = useState(null)
+  // //sets the state, bookmarks and sets it to null
+  // const [bookmarks, setBookmarks] = useState(null)
 
-  //url for the api call. Currently set to my cheese app for testing. Will need to be changed
+  // //url for the api call. Currently set to my cheese app for testing. Will need to be changed
   
   
 
-  //Makes the api call and sets bookmarks to the api data
-  const getBookmarks = async () => {
-    const response = await fetch(props.url);
-    const data = await response.json();
-    setBookmarks(data)
-  }
+  // //Makes the api call and sets bookmarks to the api data
+  // const getBookmarks = async () => {
+  //   const response = await fetch(props.url);
+  //   const data = await response.json();
+  //   setBookmarks(data)
+  // }
 
+
+  const bookmarks = props.bookmarks
+  const setBookmarks = props.setBookmarks
+  const getBookmarks=props.getBookmarks
 
   
 
@@ -47,7 +51,7 @@ const Index = (props) => {
           <div className="bookmark-name">{bookmark.title}</div>
           {/* needs to be changed to url, image is for testing purposes */}
           <div className="bookmark-link"><a href={bookmark.url}>Link</a>
-            <Link to={`/${bookmark._id}`}><button>Edit</button></Link>
+            <Link to={`/${bookmark._id}`}><button onClick={()=>props.findBookmark(bookmark)}>Edit</button></Link>
             <button onClick={
               async () => {
                 await fetch(props.url + bookmark._id , {
