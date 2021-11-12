@@ -32,9 +32,9 @@ const Index = (props) => {
       {bookmarks.map((bookmark) => {
         return <>
           {/* needs to be changed to title, name is for testing purposes */}
-          <div>{bookmark.name}</div>
+          <div className="bookmark-name">{bookmark.name}</div>
           {/* needs to be changed to url, image is for testing purposes */}
-          <div>{bookmark.image}</div>
+          <div className="bookmark-link"><a href={bookmark.image}>Link</a></div>
         
         </>
               
