@@ -1,7 +1,7 @@
 //import useEffect and useState
 import { useEffect, useState } from "react"
 //import routes, not sure I'll need them here though
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 
 const Index = (props) => {
@@ -20,6 +20,17 @@ const Index = (props) => {
     setBookmarks(data)
   }
 
+
+  
+
+  //delete function
+  const deleteBookmark = async (id) => {
+    await fetch(props.url + id, {
+      method:"delete"
+    })
+    getBookmarks()
+  }
+
   //sets initial state via getBookmarks function
   useEffect(()=>getBookmarks(),[])
 
@@ -28,6 +39,7 @@ const Index = (props) => {
 
     //returns a div to hold all bookmarks
     return <div className="all-bookmarks">
+      
       {/* maps over the state data (bookmarks) and returns the bookmark name and url */}
       {bookmarks.map((bookmark) => {
         return <>
@@ -36,6 +48,16 @@ const Index = (props) => {
           {/* needs to be changed to url, image is for testing purposes */}
           <div className="bookmark-link"><a href={bookmark.url}>Link</a>
             <Link to={`/${bookmark._id}`}><button>Edit</button></Link>
+            <button onClick={
+              async () => {
+                await fetch(props.url + bookmark._id , {
+                  method:"delete"
+                })
+                getBookmarks()
+              }
+
+              
+            }>Delete</button>
           </div>
         
         </>
