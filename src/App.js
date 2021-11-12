@@ -6,7 +6,7 @@ import { Route, Routes } from 'react-router-dom'
 import Edit from './pages/Edit';
 
 function App() {
-  const url = "https://bookmarkd-project.herokuapp.com/bookmarks";
+  const url = "https://bookmarkd-project.herokuapp.com/bookmarks/";
   return (
     <div className="App">
       <Header />
