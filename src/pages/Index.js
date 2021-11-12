@@ -43,28 +43,28 @@ const Index = (props) => {
 
     //returns a div to hold all bookmarks
     return <div className="all-bookmarks">
-      
+      <h1>All Bookmarks</h1>
+
       {/* maps over the state data (bookmarks) and returns the bookmark name and url */}
       {bookmarks.map((bookmark) => {
-        return <>
+        return <div className='bookmark'>
           {/* needs to be changed to title, name is for testing purposes */}
-          <div className="bookmark-name">{bookmark.title}</div>
+          <div className="bookmark-name"><h2>{bookmark.title}</h2></div>
           {/* needs to be changed to url, image is for testing purposes */}
-          <div className="bookmark-link"><a href={bookmark.url}>Link</a>
-            <Link to={`/${bookmark._id}`}><button onClick={()=>props.findBookmark(bookmark)}>Edit</button></Link>
-            <button onClick={
+
+          <div className="bookmark-link"><a href={bookmark.url}><img src='/link.png' alt='link'/></a>
+            <Link to={`/${bookmark._id}`}><img src='/edit.png' alt='edit'/></Link>
+            <img className='delete-button' src='/delete.png' alt='delete' onClick={
+
               async () => {
                 await fetch(props.url + bookmark._id , {
                   method:"delete"
                 })
                 getBookmarks()
-              }
-
-              
-            }>Delete</button>
+              }}/> 
           </div>
         
-        </>
+        </div>
               
       })}
     </div>
