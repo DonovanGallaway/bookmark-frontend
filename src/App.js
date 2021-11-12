@@ -38,7 +38,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Index url={url} bookmarks={bookmarks} setBookmarks={setBookmarks} getBookmarks={getBookmarks} findBookmark={findBookmark}/>} />
         <Route path="/new" element={<New url={url} />} />
-        <Route path="/:id" element={<Edit selectedBookmark={selectedBookmark}  />} />
+        <Route path="/:id" element={<Edit selectedBookmark={selectedBookmark} url={url} getBookmarks={ getBookmarks}/>} />
       </Routes>
     </div>
   );

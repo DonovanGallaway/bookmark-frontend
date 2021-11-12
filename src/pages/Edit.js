@@ -17,12 +17,12 @@ const Edit = (props) => {
   //const bookmarks = props.getBookmarks()
   
   //runs the getBookmarks function to render 
-  useEffect(() => {},[])
+  useEffect(() => {setEditForm(props.selectedBookmark)},[])
 
   const url = props.selectedBookmark.url;
 
   const updateBookmark = async (bookmark, id) => {
-    await fetch(url + id, {
+    await fetch(props.url + id, {
       method: "put",
       headers: {
         "Content-Type": "application/json"
@@ -60,14 +60,14 @@ const Edit = (props) => {
           name="title"
           placeholder="Website Name"
           onChange={handleChange}
-          value={title}
+          value={editForm.title}
         />
         <input
           type="text"
           name="url"
           placeholder="Website url"
           onChange={handleChange}
-          value={url}
+          value={editForm.url}
         />
         <input type="submit" value="Update Bookmark" />
       </form>
