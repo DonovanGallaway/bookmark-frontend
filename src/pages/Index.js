@@ -10,12 +10,12 @@ const Index = (props) => {
   const [bookmarks, setBookmarks] = useState(null)
 
   //url for the api call. Currently set to my cheese app for testing. Will need to be changed
-  const url = "https://jmp-cheese-app.herokuapp.com/cheese";
+  
   
 
   //Makes the api call and sets bookmarks to the api data
   const getBookmarks = async () => {
-    const response = await fetch(url);
+    const response = await fetch(props.url);
     const data = await response.json();
     setBookmarks(data)
   }
@@ -32,9 +32,11 @@ const Index = (props) => {
       {bookmarks.map((bookmark) => {
         return <>
           {/* needs to be changed to title, name is for testing purposes */}
-          <div className="bookmark-name">{bookmark.name}</div>
+          <div className="bookmark-name">{bookmark.title}</div>
           {/* needs to be changed to url, image is for testing purposes */}
-          <div className="bookmark-link"><a href={bookmark.image}>Link</a></div>
+          <div className="bookmark-link"><a href={bookmark.url}>Link</a>
+            <Link to={`/${bookmark._id}`}><button>Edit</button></Link>
+          </div>
         
         </>
               
@@ -46,8 +48,9 @@ const Index = (props) => {
 
     //If there are no bookmarks set, will pop up an h1 & h2 that prompts users to create one by redirecting them to the new page. We can edit this to say whatever
   return <>
+    
     <h1>Looks like you don't have any bookmarks!</h1>
-    <Link to ="/bookmarks/new"><h2>Click here to create some!</h2></Link>
+    <Link to ="/new"><h2>Click here to create some!</h2></Link>
     </>
   
 }
