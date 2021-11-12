@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {BroswerRouter as Router} from 'react-router-dom'
+import { BrowserRouter as Router } from "react-router-dom"
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <Router>
   <React.StrictMode>
     <App />
-  </React.StrictMode>
-  </Router>,
+    </React.StrictMode>
+    </Router>,
   document.getElementById('root')
 );
 
