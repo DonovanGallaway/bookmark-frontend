@@ -16,14 +16,15 @@ const Index = (props) => {
   
   //sets initial state via getBookmarks function
   useEffect(()=>getBookmarks(),[])
-
+  
   //loop to determine if bookmarks has been set 
-  if (props.bookmarks.length>0) {
+  if (props.bookmarks && props.bookmarks.length > 0) {
     //returns a div to hold all bookmarks
     return (
       <div className="all-bookmarks">
         <h1>All Bookmarks</h1>
-
+        
+        
         {/* maps over the state data (bookmarks) and returns the bookmark name and url */}
         {bookmarks.map((bookmark) => {
           return (
@@ -69,7 +70,7 @@ const Index = (props) => {
         })}
       </div>
     );
-  } else {
+  } else{
     //If there are no bookmarks set, will pop up an h1 & h2 that prompts users to create one by redirecting them to the new page.
     return (
       <>
