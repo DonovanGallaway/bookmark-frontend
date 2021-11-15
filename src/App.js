@@ -41,11 +41,32 @@ function App() {
       {/* Starts the routes */}
       <Routes>
         {/* Sets the main page route to the index page, which will show all bookmarks. This pages gets the props url, bookmarks, setBookmarks function, getBookmarks function, and findBookmark function */}
-        <Route path="/" element={<Index url={url} bookmarks={bookmarks} setBookmarks={setBookmarks} getBookmarks={getBookmarks} findBookmark={findBookmark} />} />
+        <Route
+          path="/"
+          element={
+            <Index
+              url={url}
+              bookmarks={bookmarks}
+              setBookmarks={setBookmarks}
+              getBookmarks={getBookmarks}
+              findBookmark={findBookmark}
+            />
+          }
+        />
         {/* Sets the route to the new bookmark page. Receives the api url as props */}
         <Route path="/new" element={<New url={url} />} />
         {/* Sets the edit route. gets the selectedBookmark state as props, the api url as props, and the getBookmarks function as props */}
-        <Route path="/:id" element={<Edit selectedBookmark={selectedBookmark} url={url} getBookmarks={ getBookmarks}/>} />
+        <Route
+          path="/:id"
+          element={
+            <Edit
+              selectedBookmark={selectedBookmark}
+              url={url}
+              getBookmarks={getBookmarks}
+              bookmarks={bookmarks}
+            />
+          }
+        />
       </Routes>
     </div>
   );
