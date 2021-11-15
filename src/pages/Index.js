@@ -22,9 +22,9 @@ const Index = (props) => {
     //returns a div to hold all bookmarks
     return (
       <div className="all-bookmarks">
-        <h1>All Bookmarks</h1>
-        
-        
+
+        <h1 className='page-title'>All Bookmarks</h1>
+
         {/* maps over the state data (bookmarks) and returns the bookmark name and url */}
         {bookmarks.map((bookmark) => {
           return (
@@ -33,7 +33,7 @@ const Index = (props) => {
               <div className="bookmark-name">
                 <h2>{bookmark.title}</h2>
               </div>
-
+              <div className='bookmark-funcs'>
               {/* sets the bookmark link */}
               <div className="bookmark-link">
                 <a href={bookmark.url}>
@@ -64,6 +64,7 @@ const Index = (props) => {
                     }
                   }
                 />
+                </div>
               </div>
             </div>
           );
