@@ -1,4 +1,5 @@
 $maincolor: #EDC7B7;
+$altcolor: #ffc9b3;
 $headcolor: #AC3B61;
 $textcolor: #123C69;
 
@@ -36,23 +37,36 @@ h1 {
 
 .bookmark * {
     padding: .1em;
+    font-size: 36px;
 }
 
 nav {
     display: flex;
-    font-size: 24px;
-    background-color: $textcolor
+    font-size: 20px;
+    background-color: $textcolor;
+    justify-content: space-between;
+    padding: 1em;
+    align-items: center;
 }
 
-nav > * {
+nav > *{
     margin: 0 3em;
+}
+
+
+.links {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 nav h2 {
     border-radius: 10px;
-    background-color:$maincolor;
+    background-color:$altcolor;
     color: $headcolor;
     padding: .5em;
+    box-shadow: 10px 10px;
+    margin: 0 3em;
 }
 
 a {
@@ -61,4 +75,18 @@ a {
 
 .delete-button {
     cursor: pointer;
+}
+
+.title *{
+    color: $maincolor;
+    text-shadow: 5px 5px $headcolor;
+    font-size: 48px;
+}
+
+.page-title {
+    border: 10px double $headcolor;
+    width: 50%;
+    margin: auto;
+    margin-top: 1em;
+    font-size: 48px;
 }
