@@ -3,6 +3,11 @@ $altcolor: #ffc9b3;
 $headcolor: #AC3B61;
 $textcolor: #123C69;
 
+@mixin form-data{
+    border-radius:5px;
+    font-size: 1.5em;
+    padding: 10px;
+}
 
 // * {
 //     border: black 1px solid;
@@ -89,4 +94,20 @@ a {
     margin: auto;
     margin-top: 1em;
     font-size: 48px;
+}
+
+form * {
+    margin: 10px; 
+}
+
+input[type='text']{
+    @include form-data()
+}
+
+input[type='submit']{
+    @include form-data();
+    color: $altcolor;
+    font-weight: bold;
+    background-color: $textcolor;
+    
 }
