@@ -75,10 +75,12 @@ const Index = (props) => {
     //If there are no bookmarks set, will pop up an h1 & h2 that prompts users to create one by redirecting them to the new page.
     return (
       <>
-        <h1>Looks like you don't have any bookmarks!</h1>
+        <h1 className='page-title'>Looks like you don't have any bookmarks!</h1>
+        <div className='bookmark'>
         <Link to="/new">
           <h2>Click here to create some!</h2>
         </Link>
+        </div>
       </>
     );
   }

@@ -72,7 +72,7 @@ const Edit = (props) => {
 
     //creates the form JSX as a variable to be injected later
     const form = (
-      <form class="form" onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <input
           className="form-title"
           type="text"
@@ -95,7 +95,7 @@ const Edit = (props) => {
     //returns a div with a title and the form data from above, prefilled in
     return (
       <div>
-        <h1>Edit Your Bookmark</h1>
+        <h1 className='page-title'>Edit Your Bookmark</h1>
         {form}
       </div>
     );

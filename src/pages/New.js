@@ -76,7 +76,7 @@ const createBookmark = async (bookmark) => {
 
     //returns the form in a div with a title
   return <div new-bookmark>
-    <h1>Create New Bookmark</h1>
+    <h1 className='page-title'>Create New Bookmark</h1>
     {form}
   </div>
 }
