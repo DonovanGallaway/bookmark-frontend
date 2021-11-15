@@ -6,12 +6,32 @@ const Edit = (props) => {
   //import navagate and params
   const navigate = useNavigate()
 
+  //initialize the params
+  const params = useParams()
+  
+  //initialize the id
+  const id =params.id
+
   //set form state, initialize blank
   const [editForm, setEditForm] = useState({})
+
+  
   
   //runs the getBookmarks function to render form with data from selectedBookmark
-  useEffect(() => {setEditForm(props.selectedBookmark)},[])
+  //useEffect(() => {setEditForm(bookmarkEdit)},[])
+  useEffect(() => {
+    if (props.bookmarks) {
+      const bookmarkEdit = props.bookmarks.find((b) => b._id === id);
+      setEditForm(bookmarkEdit);
+    }
+  }, [props.bookmarks]);
 
+  //if there are no props.bookmarks,  calls the getbookmarks function
+  if (props.bookmarks) {
+    
+  } else {
+    props.getBookmarks()
+  }
   
   //function to make a put request to the api to replace the data that matches the id of the bookmark
   const updateBookmark = async (bookmark, id) => {
@@ -26,10 +46,11 @@ const Edit = (props) => {
     props.getBookmarks()
   }
   
-  //saves the id of the bookmark form props
-  const id = props.selectedBookmark._id
+  
 
-  if (props.selectedBookmark) {
+  if (props.bookmarks) {
+    //saves the id of the bookmark form props
+    //const id = props.selectedBookmark._id;
     //handleChange function for form
     const handleChange = (event) => {
       //create a copy of the state
@@ -71,11 +92,15 @@ const Edit = (props) => {
         <input type="submit" value="Update Bookmark" className="form-button" />
       </form>
     );
-    //returns a div with a title and the form data from above, prefilled in 
-    return <div>
-      <h1>Edit Your {props.selectedBookmark.title} Bookmark</h1>
-      {form}
-    </div>;
+    //returns a div with a title and the form data from above, prefilled in
+    return (
+      <div>
+        <h1>Edit Your Bookmark</h1>
+        {form}
+      </div>
+    );
+  } else {
+    return <h1>No bookmark selected</h1>
   }
 }
   
