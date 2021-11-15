@@ -8,7 +8,7 @@ const New = (props) => {
   //set state of form
   const [newForm, setNewForm] = useState({
     title: "",
-    url: ""
+    url: "https://"
   })
   
   //function to create a bookmark via post request to the url
@@ -44,7 +44,7 @@ const createBookmark = async (bookmark) => {
     //resets the form state
     setNewForm({
       title: "",
-      url: ""
+      url: "https://"
     })
   }
 
@@ -65,7 +65,7 @@ const createBookmark = async (bookmark) => {
         type="text"
         name="url"
         placeholder="Website url"
-        value="https://"
+        value={newForm.url}
         onChange={handleChange}
       />
       <input type="submit" value ="Create Bookmark" className="form-button"/>
