@@ -3,11 +3,21 @@ $altcolor: #ffc9b3;
 $headcolor: #AC3B61;
 $textcolor: #123C69;
 
+
+@mixin border-div {
+    border: 10px double $headcolor;
+    width: 50%;
+    margin: auto;
+    margin-top: 1em;
+}
+
 @mixin form-data{
     border-radius:5px;
     font-size: 1.5em;
     padding: 10px;
 }
+
+
 
 // * {
 //     border: black 1px solid;
@@ -42,12 +52,12 @@ h1 {
 
 .bookmark * {
     padding: .1em;
-    font-size: 36px;
+    font-size: 1.5em;
 }
 
 nav {
     display: flex;
-    font-size: 20px;
+    font-size: 1.2em;
     background-color: $textcolor;
     justify-content: space-between;
     padding: 1em;
@@ -89,12 +99,10 @@ a {
 }
 
 .page-title {
-    border: 10px double $headcolor;
-    width: 50%;
-    margin: auto;
-    margin-top: 1em;
-    font-size: 48px;
+    @include border-div();
+    font-size: 3em
 }
+
 
 form * {
     margin: 10px; 
@@ -109,5 +117,4 @@ input[type='submit']{
     color: $altcolor;
     font-weight: bold;
     background-color: $textcolor;
-    
 }

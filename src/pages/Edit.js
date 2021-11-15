@@ -95,7 +95,7 @@ const Edit = (props) => {
     //returns a div with a title and the form data from above, prefilled in
     return (
       <div>
-        <h1>Edit Your Bookmark</h1>
+        <h1 className='page-title'>Edit Your Bookmark</h1>
         {form}
       </div>
     );
