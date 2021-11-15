@@ -65,6 +65,7 @@ const createBookmark = async (bookmark) => {
         type="text"
         name="url"
         placeholder="Website url"
+        value="https://"
         onChange={handleChange}
       />
       <input type="submit" value ="Create Bookmark" className="form-button"/>
